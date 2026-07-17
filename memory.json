@@ -1,0 +1,8 @@
+{
+    "preferences": {
+        "ai_model": "qwen",
+        "voice": "kokoro",
+        "language": "id"
+    },
+    "context": []
+}

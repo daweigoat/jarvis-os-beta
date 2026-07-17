@@ -1,0 +1,15 @@
+opencv-python
+mediapipe==0.10.14
+pygame
+moderngl
+PyOpenGL
+numpy
+psutil
+SpeechRecognition
+pyaudio
+pywin32
+pillow
+requests
+ollama
+kokoro-onnx
+sounddevice
