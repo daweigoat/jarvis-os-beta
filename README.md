@@ -1,40 +1,77 @@
-# JARVIS OS (Beta) 🤖
+JARVIS OS (Beta) 🤖
 
-Project asisten AI desktop ala Iron Man yang di-tuning khusus buat Bahasa Indonesia. Berjalan 100% secara offline di Windows 11. 
+JARVIS OS adalah proyek AI Desktop Assistant yang terinspirasi dari JARVIS milik Iron Man dan dirancang khusus untuk pengguna Bahasa Indonesia. Seluruh sistem berjalan secara lokal (offline/local-first) sehingga lebih cepat, ringan, dan privasi pengguna tetap terjaga.
 
-Tujuan project ini adalah bikin *desktop assistant* yang nggak cuma pinter, tapi juga ringan dan punya UI hologram yang memanjakan mata. Semuanya jalan secara lokal di komputer kita, jadi privasi aman banget.
+Tujuan utama proyek ini bukan hanya membuat asisten AI yang pintar, tetapi juga menghadirkan pengalaman yang lebih interaktif melalui tampilan HUD holografik yang futuristik, suara yang natural, serta dukungan gesture dan automasi desktop yang responsif.
 
-## Fitur Utama 🔥
-- **Otak AI Lokal**: Menggunakan Ollama (default-nya pakai model Qwen). Punya sistem memori sederhana biar ngobrolnya bisa nyambung.
-- **Suara Natural (Bahasa Indonesia)**: Pake Kokoro TTS biar suara yang keluar nggak kaku kayak robot jadul Google Translate.
-- **HUD Hologram**: UI-nya dibangun pakai kombinasi PyGame dan ModernGL. Ada efek *glowing shaders* 60 FPS yang langsung bereaksi ngikutin status AI-nya (lagi dengerin, mikir, atau ngomong).
-- **Gesture & Vision**: Bisa deteksi pergerakan tangan pakai MediaPipe (contoh: pose "Peace" buat trigger sesuatu). Kamera sengaja di-*lazy load* jadi nggak bakal nyedot baterai/RAM kalau lagi nggak dipakai.
-- **Desktop Automation**: Bisa disuruh buka Chrome, Spotify, VS Code, Discord, dll lewat perintah suara.
-- **Security Core**: Punya sistem keamanan bawaan. Kalau dia disuruh matiin PC, dia bakal nanya balik "Apakah anda yakin?" dan nunggu konfirmasi dari suara kita sebelum dieksekusi.
-- **Tahan Banting (Fault Tolerant)**: Kalau misal webcam dicabut atau server Ollama belum nyala, aplikasinya nggak bakal *crash*. Modul yang error bakal otomatis di-disable tapi sisa aplikasinya tetap jalan normal.
+Fitur Utama ✨
 
-## Cara Install & Pake 🛠️
+AI Engine Lokal
 
-Pastikan kamu udah pakai Python 3.11.
+Menggunakan Ollama sebagai AI engine (default menggunakan model Qwen) yang dilengkapi sistem memori sederhana agar percakapan terasa lebih natural dan tetap memiliki konteks.
 
-1. Clone repo ini atau download ZIP-nya.
-2. Install semua *dependencies*:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Pastikan [Ollama](https://ollama.com/) udah ke-install dan jalan di background (contoh: buka CMD dan ketik `ollama run qwen`).
-4. Langsung jalanin file utamanya:
-   ```bash
-   python run.py
-   ```
+Natural Indonesian Voice
 
-## Build jadi .exe 📦
-Kalau males buka lewat terminal terus-terusan, tinggal compile aja jadi file `.exe`. Jendela hitam CMD-nya bakal otomatis disembunyiin jadi cuma nyisa UI HUD-nya doang.
+Memanfaatkan Kokoro TTS untuk menghasilkan suara Bahasa Indonesia yang lebih halus dan nyaman didengar, sehingga tidak terdengar seperti suara robot konvensional.
 
-```bash
+Holographic HUD Interface
+
+Antarmuka dibangun menggunakan kombinasi PyGame dan ModernGL dengan efek glowing shaders 60 FPS yang mampu bereaksi secara real-time terhadap status AI, mulai dari mendengarkan, memproses perintah, hingga berbicara.
+
+Gesture Recognition & Computer Vision
+
+Mendukung deteksi gesture tangan menggunakan MediaPipe, seperti pose Peace Sign untuk menjalankan perintah tertentu. Sistem kamera menggunakan metode lazy loading sehingga hanya aktif saat diperlukan untuk menghemat penggunaan RAM dan daya perangkat.
+
+Desktop Automation
+
+Dapat menjalankan berbagai aplikasi melalui perintah suara, seperti Chrome, Spotify, VS Code, Discord, dan aplikasi desktop lainnya.
+
+Security Core
+
+Seluruh perintah yang bersifat sensitif akan melalui proses konfirmasi terlebih dahulu. Sebagai contoh, ketika pengguna meminta sistem untuk mematikan komputer, JARVIS OS akan meminta konfirmasi suara sebelum perintah dieksekusi.
+
+Fault Tolerant System
+
+Sistem dirancang agar tetap berjalan meskipun terdapat modul yang mengalami gangguan. Jika webcam terputus atau server Ollama belum aktif, modul terkait akan dinonaktifkan secara otomatis tanpa menyebabkan keseluruhan aplikasi mengalami crash.
+
+Cara Instalasi 🚀
+
+Pastikan Anda telah menggunakan Python 3.11 atau versi yang direkomendasikan.
+
+Clone repository ini atau unduh file ZIP.
+Install seluruh dependencies yang diperlukan.
+pip install -r requirements.txt
+Pastikan Ollama telah terpasang dan berjalan di latar belakang.
+ollama run qwen
+Jalankan aplikasi menggunakan perintah berikut.
+python run.py
+Build Menjadi File .exe 📦
+
+Apabila ingin menjalankan aplikasi tanpa membuka terminal, Anda dapat melakukan proses build menjadi file .exe.
+
 python build.py
-```
-Nanti hasil jadinya bisa dicek di folder `dist/JARVIS OS/JARVIS OS.exe`.
 
-## Arsitektur Kode 🏗️
-Kodenya sengaja dibikin sangat modular (Event-Driven architecture pakai sistem Pub/Sub). Jadi kalau misal mau nambahin plugin baru (misal: agen khusus smart home atau IoT), tinggal bikin class Plugin baru aja tanpa takut ngerusak kode inti yang udah ada.
+Setelah proses selesai, file hasil build dapat ditemukan pada direktori berikut.
+
+dist/
+└── JARVIS OS/
+    └── JARVIS OS.exe
+
+Versi .exe akan secara otomatis menyembunyikan jendela terminal sehingga hanya tampilan HUD holografik yang ditampilkan kepada pengguna.
+
+Arsitektur Sistem 🏗️
+
+JARVIS OS dibangun menggunakan pendekatan Event-Driven Architecture dengan pola komunikasi Publish/Subscribe (Pub/Sub) yang modular. Setiap fitur dipisahkan ke dalam modul yang independen sehingga lebih mudah untuk dikembangkan dan dipelihara.
+
+Dengan arsitektur ini, pengembang dapat menambahkan fitur maupun plugin baru tanpa perlu mengubah kode inti aplikasi. Misalnya:
+
+Smart Home Assistant
+IoT Controller
+Custom AI Agent
+Automation Plugin
+Voice Extension Module
+Computer Vision Extension
+
+Pendekatan modular tersebut membuat JARVIS OS lebih fleksibel, mudah dikembangkan, dan siap untuk mendukung berbagai kebutuhan di masa mendatang.
+
+JARVIS OS (Beta) masih berada dalam tahap pengembangan aktif. Berbagai fitur baru dan peningkatan performa akan terus ditambahkan seiring perkembangan proyek.
