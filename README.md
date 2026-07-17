@@ -1,8 +1,7 @@
 # JARVIS OS (Beta) 🤖
+JARVIS OS adalah proyek AI Desktop Assistant yang terinspirasi dari JARVIS milik Iron Man dan dirancang khusus untuk pengguna Bahasa Indonesia. Seluruh sistem berjalan secara lokal (offline/local-first) sehingga lebih cepat, ringan, dan privasi pengguna tetap terjaga.
 
-Project asisten AI desktop ala Iron Man yang di-tuning khusus buat Bahasa Indonesia. Berjalan 100% secara offline di Windows 11. 
-
-Tujuan project ini adalah bikin *desktop assistant* yang nggak cuma pinter, tapi juga ringan dan punya UI hologram yang memanjakan mata. Semuanya jalan secara lokal di komputer kita, jadi privasi aman banget.
+Tujuan utama proyek ini bukan hanya membuat asisten AI yang pintar, tetapi juga menghadirkan pengalaman yang lebih interaktif melalui tampilan HUD holografik yang futuristik, suara yang natural, serta dukungan gesture dan automasi desktop yang responsif.
 
 ## Fitur Utama 🔥
 - **Otak AI Lokal**: Menggunakan Ollama (default-nya pakai model Qwen). Punya sistem memori sederhana biar ngobrolnya bisa nyambung.
@@ -36,5 +35,5 @@ python build.py
 ```
 Nanti hasil jadinya bisa dicek di folder `dist/JARVIS OS/JARVIS OS.exe`.
 
-## Arsitektur Kode 🏗️
+## Arsitektur Kode
 Kodenya sengaja dibikin sangat modular (Event-Driven architecture pakai sistem Pub/Sub). Jadi kalau misal mau nambahin plugin baru (misal: agen khusus smart home atau IoT), tinggal bikin class Plugin baru aja tanpa takut ngerusak kode inti yang udah ada.
